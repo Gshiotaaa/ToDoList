@@ -29,7 +29,7 @@ export function ToDoList() {
     setTaskList([...taskList, newTask]);
   }
 
-  function compare(a:NewTask, b:NewTask) {
+  function compare(a: NewTask, b: NewTask) {
     if (a.checked < b.checked) {
       return -1;
     }
