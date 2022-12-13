@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "roboto", sans-serif;
+}
+
+body {
+  background-color: #1a1a1a;
+}
+
+header {
+  background-color: #0d0d0d;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 12.5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 46rem;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  width: 100%;
+
+  margin-top: -25px;
+  margin-bottom: 4rem;
+}
+
+form input {
+  padding: 1rem;
+  height: 3.375rem;
+  color: #f2f2f2;
+
+  flex: 1;
+
+  background-color: #262626;
+  border: none;
+  border-radius: 8px;
+}
+
+form button {
+  padding: 1rem;
+  height: 3.25rem;
+  width: 5.625rem;
+
+  background-color: #1e6f9f;
+  color: #f2f2f2;
+
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #4ea8de;
+}
+
+.infoTask {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+}
+
+.statusTask {
+  color: #4ea8de;
+  display: flex;
+  gap: 0.5rem;
+
+  font-size: 0.875rem;
+}
+
+.statusTask span:nth-child(2) {
+  background-color: #333333;
+  color: #d9d9d9;
+  width: 1.563rem;
+  height: 1.188rem;
+
+  border-radius: 8px;
+  text-align: center;
+}
+
+.purple {
+  color: #8284fa;
+}

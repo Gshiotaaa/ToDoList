@@ -1,0 +1,14 @@
+.checkBox {
+  border-radius: 50%;
+  border: 2.5px solid #4ea8de;
+
+  width: 1.125rem;
+  height: 1.125rem;
+
+  cursor: pointer;
+}
+
+.checkedStyle {
+  border: none;
+  background-color: #8284fa;
+}

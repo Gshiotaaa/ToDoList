@@ -1,0 +1,8 @@
+.voidList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #808080;
+  margin-top: 1.5rem;
+}
