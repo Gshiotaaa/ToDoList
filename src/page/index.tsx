@@ -29,17 +29,30 @@ export function ToDoList() {
     setTaskList([...taskList, newTask]);
   }
 
+  function compare(a:NewTask, b:NewTask) {
+    if (a.checked < b.checked) {
+      return -1;
+    }
+    if (a.checked > b.checked) {
+      return 1;
+    }
+    return 0;
+  }
+
   function handleCheckedTask(id: string) {
-    const newTaskList = taskList.map((taskItem) => {
-      if (taskItem.id === id) {
-        return {
-          id: taskItem.id,
-          task: taskItem.task,
-          checked: taskItem.checked ? false : true,
-        };
-      }
-      return taskItem;
-    });
+    const newTaskList = taskList
+      .map((taskItem) => {
+        if (taskItem.id === id) {
+          return {
+            id: taskItem.id,
+            task: taskItem.task,
+            checked: taskItem.checked ? false : true,
+          };
+        }
+        return taskItem;
+      })
+      .sort(compare);
+
     setTaskList(newTaskList);
   }
 
