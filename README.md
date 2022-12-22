@@ -29,7 +29,7 @@ List of tasks
 ```
 - git clone
 - npm install
-- npm start
+- npm run dev
 ```
 <h2>⚙️ Utilizando</h2>
 
