@@ -85,6 +85,7 @@ form button:hover {
 .statusTask {
   color: #4ea8de;
   display: flex;
+  align-items: center;
   gap: 0.5rem;
 
   font-size: 0.875rem;
@@ -93,10 +94,8 @@ form button:hover {
 .statusTask span:nth-child(2) {
   background-color: #333333;
   color: #d9d9d9;
-  width: 1.563rem;
-  height: 1.188rem;
-
-  border-radius: 8px;
+  padding: 0.25rem;
+  border-radius: 10px;
   text-align: center;
 }
 

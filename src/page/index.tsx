@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import logotipo from "../assets/logoToDoList.svg";
 import { TaskList } from "../components/taskslist";
 import { VoidList } from "../components/voidlist/voidList";
@@ -13,9 +13,7 @@ interface NewTask {
 export function ToDoList() {
   const [task, setTask] = useState("");
 
-  const [taskList, setTaskList] = useState<NewTask[]>(
-    JSON.parse(localStorage.getItem("@react-toDoList:tasks-state-1.0.0") || "")
-  );
+  const [taskList, setTaskList] = useState<NewTask[]>([]);
 
   function handleNewTask(event: FormEvent) {
     event.preventDefault();
@@ -27,6 +25,7 @@ export function ToDoList() {
     };
 
     setTaskList([...taskList, newTask]);
+    setTask("");
   }
 
   function compare(a: NewTask, b: NewTask) {
@@ -60,12 +59,6 @@ export function ToDoList() {
     setTaskList(taskList.filter((taskItem) => taskItem.id !== id));
   }
 
-  useEffect(() => {
-    const stateJSON = JSON.stringify(taskList);
-
-    localStorage.setItem("@react-toDoList:tasks-state-1.0.0", stateJSON);
-  }, [taskList]);
-
   return (
     <>
       <header>
@@ -78,6 +71,7 @@ export function ToDoList() {
             type="text"
             placeholder="Adicione uma nova tarefa"
             onChange={(e) => setTask(e.target.value)}
+            value={task}
             required
           />
           <button type="submit">Criar</button>
@@ -90,7 +84,10 @@ export function ToDoList() {
           </div>
           <div className="statusTask purple">
             <span>Concluidas</span>
-            <span>{taskList.filter((a) => a.checked === true).length}</span>
+            <span>
+              {taskList.filter((a) => a.checked === true).length} de{" "}
+              {taskList.length}
+            </span>
           </div>
         </div>
         {taskList.length ? (
