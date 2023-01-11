@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import logotipo from "../assets/logoToDoList.svg";
 import { TaskList } from "../components/taskslist";
 import { VoidList } from "../components/voidlist/voidList";
@@ -11,9 +11,15 @@ interface NewTask {
 }
 
 export function ToDoList() {
+  const storageStateAsJSON = localStorage.getItem(
+    "@react-toDoList:task-state-1.0.0"
+  );
+
   const [task, setTask] = useState("");
 
-  const [taskList, setTaskList] = useState<NewTask[]>([]);
+  const [taskList, setTaskList] = useState<NewTask[]>(
+    storageStateAsJSON ? JSON.parse(storageStateAsJSON as string) : []
+  );
 
   function handleNewTask(event: FormEvent) {
     event.preventDefault();
@@ -58,6 +64,12 @@ export function ToDoList() {
   function handleRemoveTask(id: string) {
     setTaskList(taskList.filter((taskItem) => taskItem.id !== id));
   }
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(taskList);
+
+    localStorage.setItem("@react-toDoList:task-state-1.0.0", stateJSON);
+  }, [taskList]);
 
   return (
     <>
